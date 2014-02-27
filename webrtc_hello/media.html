@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src='public/js/adapter.js'></script>
+	<title>WebRTC HelloWorld App</title>
+</head>
+
+<body>
+	<video autoplay></video>
+	
+	<script>
+		var video = document.querySelector('video');
+		
+		var constraints = {
+			qvga : {
+			  	video: {
+					mandatory: {
+				  	maxWidth: 320,
+				  	maxHeight: 180
+					}
+			  	}
+			},
+	
+			vga : {
+			  	video: {
+					mandatory: {
+				  	maxWidth: 640,
+				  	maxHeight: 360
+					}
+			  	}
+			},
+	
+			hd : {
+			  	video: {
+					mandatory: {
+				  	maxWidth: 1280,
+				  	maxHeight: 720
+					}
+			  	}
+			}
+		};
+		
+		function successCallback(stream) {
+			window.stream = stream;	
+			video.src = window.URL.createObjectURL(stream);
+		}
+
+		function errorCallback(error) {
+			console.log('getUserMedia error: ', error);
+		}
+
+		getUserMedia(constraints.qvga, successCallback, errorCallback);
+	</script>
+</body>
+
+</html>
