@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='http://code.jquery.com/jquery.min.js'></script>
+	<title>WebSocket @ Tornado</title>
+</head>
+
+<body>
+	<div id='msg'></div>
+	<form action='/chat' method='post'>
+		<textarea id='text'></textarea>
+		<input type='submit' />
+	</form>
+	<script src="{{ static_url('chat.js') }}"></script>
+</body>
+</html>
+
